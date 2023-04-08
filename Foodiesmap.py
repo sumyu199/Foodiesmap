@@ -49,7 +49,7 @@ def to_excel(df):
 st.title("Foodie's Map")  
 st.write("Created by [Sum Yu Ng]")  
 image = Image.open("image.jpg")
-st.image(image,caption='Food Gallary')
+st.image(image,caption='Food Gallery')
 
 
 progress_text = "Download in progress. Please wait.     🦘🦘🦘🦘"   
