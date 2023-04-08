@@ -181,7 +181,7 @@ if st.sidebar.button('Extract Now'):
     
     st.write("✅ Duplicates removed")
     st.divider()
-    restaurant_table = restaurant_table.drop_duplicates()
+    restaurant_table = restaurant_table.drop_duplicates(['Restaurant'],["Address"])
     top_10 = restaurant_table[restaurant_table['Rating'] >= 4]
     top_10 = top_10.sort_values(by = ["Number of Reviews","Rating"], ascending=False)[["Restaurant","Price","Address"]].reset_index(drop=True)
     top_10.index += 1
