@@ -160,7 +160,7 @@ if st.sidebar.button('Extract Now'):
                                 "Cuisine":cuisine,
                                 "Price" :price,
                                 "Rating" : rating,
-                                "Number of Reviews":number_of_reviews.replace("(","").replace(")","").split()[0],
+                                "Number of Reviews":int(number_of_reviews.replace("(","").replace(")","").split()[0]),
                                 "Open Now":open,
                                 "Openign Times":open_times,
                                 "Address" : address,
@@ -178,8 +178,10 @@ if st.sidebar.button('Extract Now'):
             break
         pagecount +=1
     
-    st.divider()
     
+    st.write("✅ Duplicates removed")
+    st.divider()
+    restaurant_table = restaurant_table.drop_duplicates()
     top_10 = restaurant_table.sort_values(by = ["Rating","Number of Reviews"], ascending=False)[["Restaurant","Price","Address"]].reset_index(drop=True)
     top_10.index += 1
     st.header("🥙 Our Recommendations")
