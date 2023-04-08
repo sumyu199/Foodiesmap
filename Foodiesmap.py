@@ -180,9 +180,10 @@ if st.sidebar.button('Extract Now'):
     
     st.divider()
     
-    top_10 = restaurant_table.sort_values(by = ["Number of Reviews","Rating"])[["Restaurant","Price","Address"]]
+    top_10 = restaurant_table.sort_values(by = ["Number of Reviews","Rating"], ascending=False)[["Restaurant","Price","Address"]].reset_index(drop=True)
+    top_10.index += 1
     st.header("🥙 Our Recommendations")
-    st.write(top_10)
+    st.write(top_10.head(10))
     
     
     
@@ -201,10 +202,11 @@ if st.sidebar.button('Extract Now'):
             width=800,
             height=600)
     city = city.replace("+"," ")
-    st.header(f"No of Restaurant by Cuisine\n {city}")
+    st.header(f"🍱 Number of Restaurant by Cuisine\n {city}")
     st.plotly_chart(fig)
     
     st.divider()  
+    st.header("🗂️ Restaurant Table")
     st.write(restaurant_table)    
     rest_xlsx = to_excel(restaurant_table)
     st.text("{Yelp. “Yelp.” Yelp, www.yelp.co.uk.}")
