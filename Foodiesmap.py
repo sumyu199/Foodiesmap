@@ -173,7 +173,7 @@ if st.sidebar.button('Extract Now'):
                 pass
         yelp_restaurant = getnextpage(page_soup,city,pagecount)
         if not yelp_restaurant:
-            my_bar.progress(100, text= "Download complete" + str(restaurant_count) + "restaurants have been downloaded")
+            my_bar.progress(100, text= "Download complete " + str(restaurant_count) + " restaurants have been downloaded")
             st.success(str(restaurant_count) + " restaurants have been found",icon="📚")
             break
         pagecount +=1
