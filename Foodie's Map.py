@@ -178,6 +178,12 @@ if st.sidebar.button('Extract Now'):
             break
         pagecount +=1
     
+    st.divider()
+    
+    top_10 = restaurant_table.sort_values(by = ["Number of Reviews","Rating"])[["Restaurant","Price","Address"]]
+    st.header("🥙 Our Recommendations")
+    st.write(top_10)
+    
     
     
     st.divider()
@@ -205,5 +211,9 @@ if st.sidebar.button('Extract Now'):
     ste.download_button(label='📥 Download Result',
                                 data= rest_xlsx,
                                 file_name= city + '_restaurant.xlsx') 
+    
+    
+    
+    
 else:
     st.sidebar.write('👆 Click here to extract data')
