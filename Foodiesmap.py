@@ -159,7 +159,7 @@ if st.sidebar.button('Extract Now'):
                                 "Restaurant": restaurant_name,
                                 "Cuisine":cuisine,
                                 "Price" :price,
-                                "Rating" : rating,
+                                "Rating" : float(rating),
                                 "Number of Reviews":int(number_of_reviews.replace("(","").replace(")","").split()[0]),
                                 "Open Now":open,
                                 "Openign Times":open_times,
