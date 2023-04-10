@@ -149,12 +149,15 @@ if st.sidebar.button('Extract Now'):
                     address = rest_soup.xpath("//*[@id='location-and-hours']/section/div[2]/div[1]/div/div/div/div[1]/address/p[1]/a/span")[0].text
                 try:
                     website = rest_soup.xpath("/html/body/yelp-react-root/div[1]/div[4]/div/div/div[2]/div/div[2]/div/aside/div/section/div/div[1]/div/div[1]/p[2]/a")[0].text
-                except:
+                except:                        
                     website = rest_href
                 try:
                     phone_number = rest_soup.xpath("/html/body/yelp-react-root/div[1]/div[4]/div/div/div[2]/div/div[2]/div/aside/div/section/div/div[2]/div/div[1]/p[2]")[0].text
                 except:
-                    phone_number = "N/A"
+                    try:
+                        phone_number = rest_soup.xpath("/html/body/yelp-react-root/div[1]/div[4]/div/div/div[2]/div/div[2]/div/aside/div/section/div/div/div/div[1]/p[2]")[0].text
+                    except:
+                        phone_number = "N/A"
                 rest_dictionary = {"City" : city.replace("+"," "),
                                 "Restaurant": restaurant_name,
                                 "Cuisine":cuisine,
